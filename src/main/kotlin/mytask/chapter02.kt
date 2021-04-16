@@ -1,5 +1,8 @@
 package mytask
 
+import java.io.BufferedReader
+import java.io.StringReader
+import java.lang.IllegalArgumentException
 import java.util.*
 
 fun main(args:Array<String>) {
@@ -54,8 +57,43 @@ fun main(args:Array<String>) {
     println(setOf("Java","Scale"))
 
     //________________________________________________________________________________
+    //2.5 Исключения в Kotlin
+    //________________________________________________________________________________
 
+    val percentage = 99
+    if (percentage !in 1..100){
+        throw IllegalArgumentException(
+            "A percentage: $percentage"
+        )
+    }
+    //________________________________________________________________________________
+    val number = 99
+    val percentage2 =
+        if(number in 0..100)
+            number
+        else
+            throw IllegalArgumentException(
+                "A percentage: $percentage")
+    println("percentage2 $percentage2")
 
+    //________________________________________________________________________________
+    //    2.5.1. <<try>>, <<catch>> и <<finaLLy>>
+    //________________________________________________________________________________
 
+    fun readNumber(reader : BufferedReader) : Int? {
+        try {
+            val line = reader.readLine()
+            return Integer.parseInt(line)
+        }
+        catch ( е : NumberFormatException) {
+            return null
+        }
+        finally {
+            reader.close( )
+        }
+    }
+
+    val reader = BufferedReader(StringReader( "239" ))
+    println(readNumber(reader))
 
 }
