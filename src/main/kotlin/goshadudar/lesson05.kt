@@ -38,4 +38,9 @@ fun main(args:Array<String>) {
 
 fun  printArray(items: List<Any>){
     items.forEach{el-> println(el)}
+
+
 }
+
+
+
