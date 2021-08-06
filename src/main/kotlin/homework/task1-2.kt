@@ -34,7 +34,7 @@ fun getResult(input: IntArray): IntArray {
 
 
 
-    throw NotImplementedError("Not implemented")
+
     return output
 }
 
